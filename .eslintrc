@@ -1,0 +1,85 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "jest"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [
+      "off"
+    ],
+    "linebreak-style": [
+      "off"
+    ],
+    "no-undef": [
+      "error"
+    ],
+    "react/sort-comp": [
+      "off"
+    ],
+    "react/prefer-stateless-function": [
+      "off"
+    ],
+    "react/prop-types": [
+      "off"
+    ],
+    "no-use-before-define": [
+      "error",
+      {
+        "variables": false
+      }
+    ],
+    // 只讓變數可以定義寫在後面
+    "global-require": [
+      "off"
+    ],
+    "no-restricted-globals": [
+      "off"
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "tabWidth": 2,
+        "ignoreUrls": true,
+        "ignoreComments": false,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": false,
+        "ignoreTemplateLiterals": false
+      }
+    ],
+    "no-unused-expressions": "off",
+    "no-console": "off",
+    "react/state-in-constructor": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/destructuring-assignment": "off",
+    "jsx-a11y/label-has-associated-control": "off"
+  },
+  "globals": {
+  },
+  "env": {
+    "jest/globals": true,
+    "browser": true,
+    "node": true,
+    "commonjs": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js"
+        ]
+      }
+    }
+  }
+}
