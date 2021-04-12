@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    color: 'grey'
+    color: 'grey',
   },
   userButton: {
     marginLeft: 10,

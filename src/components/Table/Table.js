@@ -27,7 +27,7 @@ const defaultLocalization = {
     searchPlaceholder: '搜尋關鍵字',
   },
   body: {
-    emptyDataSourceMessage: '查無使用者',
+    emptyDataSourceMessage: '查無資料',
   },
 };
 
@@ -38,7 +38,7 @@ const defaultOptions = {
 
 const Table = (
   {
-    title, columns, data, localization, options, addDataButton,
+    title, columns, data, localization, options, addDataButton, detail,
   },
 ) => {
   const classes = useStyles();
@@ -50,6 +50,7 @@ const Table = (
       data={data}
       options={options}
       localization={localization}
+      detailPanel={detail}
       components={{
         Toolbar: (props) => (
           <>
@@ -90,6 +91,7 @@ Table.propTypes = {
     handleClickAdd: PropTypes.func.isRequired,
     icon: PropTypes.node.isRequired,
   }),
+  detail: PropTypes.func,
 };
 
 Table.defaultProps = {
@@ -97,6 +99,7 @@ Table.defaultProps = {
   options: defaultOptions,
   localization: defaultLocalization,
   addDataButton: undefined,
+  detail: undefined,
 };
 
 export default Table;
