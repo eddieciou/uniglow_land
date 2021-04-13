@@ -53,6 +53,7 @@ class ProductPage extends Component {
               columns={[
                 { title: '商品編號', field: 'product_number' },
                 { title: '商品名稱', field: 'product_name' },
+                { title: '建立時間', field: 'create_datetime' },
               ]}
               detail={(rowData) => (
                 <div
