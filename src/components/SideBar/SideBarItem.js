@@ -23,7 +23,7 @@ const SideBarItem = ({ menusItem, band }) => {
       <ListItem
         button
         className={classes.item}
-        onClick={() => { window.location.href = `/reservation${menusItem.href}`; }}
+        onClick={() => { window.location.href = `/${band}${menusItem.href}`; }}
       >
         <ListItemText primary={menusItem.itemName} />
       </ListItem>
@@ -44,7 +44,7 @@ const SideBarItem = ({ menusItem, band }) => {
               <ListItem
                 button
                 className={classes.item}
-                onClick={() => { window.location.href = `/reservation${menu.href}`; }}
+                onClick={() => { window.location.href = `${menu.href}`; }}
               >
                 <ListItemText primary={menu.itemName} />
               </ListItem>
