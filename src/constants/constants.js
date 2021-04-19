@@ -1,5 +1,21 @@
 export const RESERVATION_API_SERVER = process.env.REACT_APP_RESERVATION_API_URL ? process.env.REACT_APP_RESERVATION_API_URL : 'http://127.0.0.1:5000';
 
+export const inventoryCodes = [
+  // 出庫
+  { name: '員購出庫', inventoryCode: -1, inventoryType: -1 },
+  { name: '調貨出庫', inventoryCode: -2, inventoryType: -1 },
+  { name: '行銷出庫', inventoryCode: -3, inventoryType: -1 },
+  { name: '其他出庫', inventoryCode: -4, inventoryType: -1 },
+  // 入庫
+  { name: '調貨入庫', inventoryCode: 1, inventoryType: 1 },
+  { name: '商品入庫', inventoryCode: 2, inventoryType: 1 },
+  { name: '退貨入庫', inventoryCode: 3, inventoryType: 1 },
+  { name: '其他入庫', inventoryCode: 4, inventoryType: 1 },
+];
+
+export const inventoryCodeNameMap = inventoryCodes.reduce((accumulator, currentValue) => (
+  { ...accumulator, [currentValue.inventoryCode]: currentValue.name }), {});
+
 export const permissionGroupMap = {
   admin: 'Admin',
   workstation: '工位數量',

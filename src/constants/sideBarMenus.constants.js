@@ -9,6 +9,11 @@ const sideBarMenus = [
     itemName: '商品庫存',
     href: '/inventory',
   },
+  {
+    itemKey: '2',
+    itemName: '入/出庫',
+    href: '/inventory_record',
+  },
 ];
 
 export default sideBarMenus;
