@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
@@ -11,7 +11,6 @@ const Selector = ({
 }) => {
   const classes = userStyles({ width });
   const outlinedInputClasses = useOutlinedInputStyles();
-  const [selected, setSelected] = useState(value);
 
   return (
     <FormControl
@@ -23,11 +22,8 @@ const Selector = ({
       <Select
         displayEmpty={displayEmpty}
         style={{ ...style }}
-        value={selected}
-        onChange={(event) => {
-          setSelected(event.target.value);
-          onChange(event.target.value);
-        }}
+        value={value}
+        onChange={onChange}
         input={(<OutlinedInput classes={outlinedInputClasses} />)}
       >
         {
