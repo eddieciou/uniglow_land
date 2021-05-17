@@ -7,9 +7,12 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Radio as MRadio } from '@material-ui/core';
 
 const Radio = ({
-  title, value, onChange, choices,
+  title, value, onChange, choices, disabled,
 }) => (
-  <FormControl component="fieldset">
+  <FormControl
+    disabled={disabled}
+    component="fieldset"
+  >
     { title && <FormLabel component="legend">{title}</FormLabel>}
     <RadioGroup value={value.toString()} onChange={onChange} row>
       {
@@ -36,10 +39,12 @@ Radio.propTypes = {
   onChange: PropTypes.func.isRequired,
   title: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  disabled: PropTypes.bool,
 };
 
 Radio.defaultProps = {
   title: undefined,
+  disabled: false,
 };
 
 export default Radio;

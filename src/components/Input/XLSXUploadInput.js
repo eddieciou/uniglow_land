@@ -54,9 +54,10 @@ class XLSXUploadInput extends Component {
 
   renderLabel = () => {
     const { fileName, uploadError } = this.state;
+    const { styles } = this.props;
     return (
-      <div style={{ color: uploadError ? 'red' : 'gray', marginLeft: 5 }}>
-        {fileName || '限檔名為subsidy的xlsx檔'}
+      <div style={{ ...styles, color: uploadError ? 'red' : 'gray', marginLeft: 5 }}>
+        {fileName || '僅可上傳一個分頁的xlsx檔'}
       </div>
     );
   }
@@ -66,7 +67,7 @@ class XLSXUploadInput extends Component {
     const { isUploading, fileName } = this.state;
 
     return (
-      <>
+      <div style={{ ...styles }}>
         <input
           accept=".xlsx"
           type="file"
@@ -81,7 +82,7 @@ class XLSXUploadInput extends Component {
               variant="contained"
               disableElevation
               onClick={this.fileUploadAction}
-              style={isUploading || disabled ? { ...styles, backgroundColor: '#939292' } : styles}
+              style={isUploading || disabled ? { backgroundColor: '#939292', ...styles } : styles}
             >
               { isUploading && <CircularProgress size={20} style={{ marginRight: 5, color: 'white' }} /> }
               { title }
@@ -90,7 +91,7 @@ class XLSXUploadInput extends Component {
           )}
           label={this.renderLabel()}
         />
-      </>
+      </div>
     );
   }
 }

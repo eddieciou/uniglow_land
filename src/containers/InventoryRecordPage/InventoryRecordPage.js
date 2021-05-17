@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import MainLayout from '../MainLayout/MainLayout';
 import { get } from '../../services/reservation.service';
 import Table from '../../components/Table/Table';
 import { inventoryCodeNameMap } from '../../constants/constants';
+import UploadInventoryModal from './UploadInventoryModal';
 
 class InventoryRecordPage extends Component {
   state = {
@@ -14,6 +16,7 @@ class InventoryRecordPage extends Component {
       products: {},
       create_datetime: '',
     }],
+    openUploadInventory: false,
     singleProducts: {},
     fetched: false,
   }
@@ -41,13 +44,30 @@ class InventoryRecordPage extends Component {
     });
   }
 
+  handOpenUploadInventory = () => this.setState({ openUploadInventory: true })
+
   render() {
     const {
-      band, fetched, singleProducts, inventoryRecord,
+      band, fetched, singleProducts, inventoryRecord, openUploadInventory,
     } = this.state;
 
     return (
       <MainLayout band={band}>
+        {
+          openUploadInventory && (
+          <UploadInventoryModal
+            band={band}
+            open={openUploadInventory}
+            onClose={() => { this.setState({ openUploadInventory: false }); }}
+            onSuccess={(result) => {
+              this.setState({
+                openUploadInventory: false,
+                inventoryRecord: [result, ...inventoryRecord],
+              });
+            }}
+          />
+          )
+        }
         <h1>入/出庫紀錄</h1>
         {
           !fetched
@@ -64,6 +84,11 @@ class InventoryRecordPage extends Component {
                   },
                   { title: '建立時間', field: 'create_datetime' },
                 ]}
+                addDataButton={{
+                  name: '商品入/出庫',
+                  icon: <LocalShippingIcon />,
+                  handleClickAdd: this.handOpenUploadInventory,
+                }}
                 detail={(rowData) => (
                   <div
                     style={{

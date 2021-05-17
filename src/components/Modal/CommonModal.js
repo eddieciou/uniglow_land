@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const CommonModal = ({
-  title, description, handelCancel, handleSubmit, open, submitText, content, isLoading,
+  title, description, handelCancel, handleSubmit, open, submitText, content, isLoading, submitDisabled,
 }) => (
   <Dialog
     open={open}
@@ -28,7 +28,11 @@ const CommonModal = ({
         <Button disabled={isLoading} onClick={handelCancel} color="secondary">
           取消
         </Button>
-        <Button disabled={isLoading} type="submit" style={{ color: `${isLoading ? '' : '#35a728'}` }}>
+        <Button
+          disabled={isLoading || submitDisabled}
+          type="submit"
+          style={{ color: `${isLoading || submitDisabled ? '' : '#35a728'}` }}
+        >
           {submitText}
           {isLoading && <CircularProgress size={15} />}
         </Button>
@@ -46,6 +50,7 @@ CommonModal.propTypes = {
   title: PropTypes.string,
   isLoading: PropTypes.bool,
   content: PropTypes.func,
+  submitDisabled: PropTypes.bool,
 };
 
 CommonModal.defaultProps = {
@@ -54,6 +59,7 @@ CommonModal.defaultProps = {
   title: '',
   isLoading: false,
   content: undefined,
+  submitDisabled: false,
 };
 
 export default CommonModal;
