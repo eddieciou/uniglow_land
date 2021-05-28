@@ -25,6 +25,7 @@ const UploadInventoryModal = ({
         onSuccess(result.result);
       },
     ).catch((error) => {
+      setUploading(false);
       setErrorMessage(error.message);
     });
   };
