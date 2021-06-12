@@ -12,7 +12,7 @@ class SaleRecordPage extends Component {
     openUploadSaleRecord: false,
     saleRecord: [{
       sale_number: '',
-      sale_content: {},
+      single_products: {},
       create_datetime: '',
     }],
     singleProducts: {},
@@ -95,7 +95,7 @@ class SaleRecordPage extends Component {
                       內容
                     </div>
                     {
-                      Object.keys(rowData.sale_content).map((part) => (
+                      Object.keys(rowData.single_products).map((part) => (
                         <div
                           key={part}
                           style={{
@@ -113,7 +113,7 @@ class SaleRecordPage extends Component {
                           >
                             X
                             {' '}
-                            {rowData.sale_content[part]}
+                            {rowData.single_products[part]}
                           </div>
                         </div>
                       ))

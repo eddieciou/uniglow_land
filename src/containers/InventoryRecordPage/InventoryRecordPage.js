@@ -106,7 +106,7 @@ class InventoryRecordPage extends Component {
                       內容
                     </div>
                     {
-                      Object.keys(rowData.products).map((part) => (
+                      Object.keys(rowData.single_products).map((part) => (
                         <div
                           key={part}
                           style={{
@@ -124,7 +124,7 @@ class InventoryRecordPage extends Component {
                           >
                             X
                             {' '}
-                            {rowData.products[part]}
+                            {rowData.single_products[part]}
                           </div>
                         </div>
                       ))
