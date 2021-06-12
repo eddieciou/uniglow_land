@@ -28,6 +28,7 @@ import WeekSchedulePage from './containers/WeekSchedulePage/WeekSchedulePage';
 import ProductPage from './containers/ProductPage/ProductPage';
 import InventoryPage from './containers/InventoryPage/InventoryPage';
 import InventoryRecordPage from './containers/InventoryRecordPage/InventoryRecordPage';
+import SaleRecordPage from './containers/SaleRecordPage/SaleRecordPage';
 
 class App extends React.Component {
   constructor(props) {
@@ -55,6 +56,7 @@ class App extends React.Component {
             <PrivateRoute path="/:band/product" component={ProductPage} />
             <PrivateRoute path="/:band/inventory" component={InventoryPage} />
             <PrivateRoute path="/:band/inventory_record" component={InventoryRecordPage} />
+            <PrivateRoute path="/:band/sale_record" component={SaleRecordPage} />
 
             <PrivateRoute path="/reservation/dashboard" component={DashboardPage} />
             <PrivateRoute path="/reservation/personal_setting" component={PersonalSettingPage} />
